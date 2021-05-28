@@ -3,8 +3,9 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from model import country
 
-
 """Extracting HTML table from worldometers."""
+
+
 def getTable():
     URL = "https://www.worldometers.info/coronavirus/"
     page = requests.get(URL)
@@ -13,6 +14,8 @@ def getTable():
 
 
 """Creating pandas dataframe headers."""
+
+
 def createDataFrame():
     headers = []
     for i in getTable().find_all('th'):
@@ -23,6 +26,8 @@ def createDataFrame():
 
 
 """Filling pandas dataframe with rows and converting it to numpy array."""
+
+
 def dataFrameToNumpyArray():
     df = createDataFrame()
     for j in getTable().find_all('tr')[1:]:
@@ -32,7 +37,10 @@ def dataFrameToNumpyArray():
         df.loc[length] = row
     return df.to_numpy()
 
-"""Filling the list of countries."""
+
+"""Filling the list of Country objects."""
+
+
 def fillCountriesList():
     df = dataFrameToNumpyArray()
     countries = []
@@ -61,8 +69,3 @@ def fillCountriesList():
                 row[20],
                 row[21]))
     return countries
-
-
-def printAllCountries():
-    for k in fillCountriesList():
-        print(vars(k))
