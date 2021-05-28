@@ -45,7 +45,7 @@ class Country(object):
         self.newDeathPerOneMillion = newDeathPerOneMillion
         self.activeCasesPerOneMillion = activeCasesPerOneMillion
 
-    # TODO : __repr__ def __str__(self):
+
     def __str__(self):
         return "Name: " + self.name + "\nTotal cases: " + self.totalCases + "\nTotal deaths: " + self.totalDeaths
 
