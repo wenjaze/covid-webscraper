@@ -8,12 +8,26 @@ This script scrapes LIVE COVID related informations about all the countries, con
 - Total cases
 - Total deaths
 - Total tests
-- Cases / 1M
+- Total recovered
+- New cases
+- New deaths
+- New recovered
+- Active cases
+- Critical cases
+- Population
+- Total cases / 1M
 - Deaths / 1M
 - Tests / 1M
+- New cases / 1M
+- Active cases / 1M
+- New deaths / 1M
+- 1 case / X people
+- 1 death / x people
+- 1 test / x people
+- 
 #### Usage:
 - **JSON**
- - Run main.py from the root directory
+  - Run main.py from the root directory
 There you go, you have a time-stamped .json format file in the resources directory.
 - **Python object**:
- - Call parser.fillCountriesList() -> returns a list of [Country](https://github.com/wenjaze/covid-webscraper/blob/master/model/country.py) objects.
+  - Call parser.fillCountriesList() -> returns a list of [Country](https://github.com/wenjaze/covid-webscraper/blob/master/model/country.py) objects.
