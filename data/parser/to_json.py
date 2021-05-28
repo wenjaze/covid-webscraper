@@ -1,14 +1,13 @@
-import data.scrape as scraper
 import json
+import data.scrape as scraper
+import os
+import resources
+
+"""Generate a JSON file from web-scraped python country objects."""
 
 
 def countryToJson():
-    for country in scraper.fillCountriesList():
-        country_in_json = json.dumps(country.__dict__)
-
-    print(country_in_json)
-
-
-def write_json(new_data, filename='data.json'):
-    with open(filename, 'r+') as file:
-        json.dump(file_data, file, indent=4)
+    resources_dir = os.path.join(os.path.dirname(resources.__file__))
+    with open(resources_dir + "/countries.json", "r+") as file:
+        countryList = [ob.__dict__ for ob in scraper.fillCountriesList()]
+        json.dump({"countries": countryList}, file, indent=4)

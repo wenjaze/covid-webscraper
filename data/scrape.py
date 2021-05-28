@@ -4,6 +4,7 @@ import pandas as pd
 from model import country
 
 
+"""Extracting HTML table from worldometers."""
 def getTable():
     URL = "https://www.worldometers.info/coronavirus/"
     page = requests.get(URL)
@@ -11,6 +12,7 @@ def getTable():
     return soup.find(id='main_table_countries_today')
 
 
+"""Creating pandas dataframe headers."""
 def createDataFrame():
     headers = []
     for i in getTable().find_all('th'):
@@ -20,6 +22,7 @@ def createDataFrame():
     return pd.DataFrame(columns=headers)
 
 
+"""Filling pandas dataframe with rows and converting it to numpy array."""
 def dataFrameToNumpyArray():
     df = createDataFrame()
     for j in getTable().find_all('tr')[1:]:
@@ -29,7 +32,7 @@ def dataFrameToNumpyArray():
         df.loc[length] = row
     return df.to_numpy()
 
-
+"""Filling the list of countries."""
 def fillCountriesList():
     df = dataFrameToNumpyArray()
     countries = []
