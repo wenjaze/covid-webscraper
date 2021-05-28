@@ -1,5 +1,5 @@
 ## COVID-Webscraper
-Are you looking for up to date COVID related information that you want use programatically both as Python object lists, or JSON?
+Are you looking for up to date COVID related information that you want to use programatically both as Python object lists, or JSON?
 You can use this project as a base for data visualizing, demonstrating
 interesting facts or simply creating a CRUD API from it (Only for educational, demonstrational and non-monetizing purposes). Feel free to use it in any form
 of application, that [worldometers](https://www.worldometers.info/coronavirus/) allows you to, by purchasing their LICENSE starting [here](https://www.worldometers.info/licensing-trial.php). I do not take responsibility and own any source of information provided.
