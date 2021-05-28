@@ -24,7 +24,7 @@ This script scrapes LIVE COVID related informations about all the countries, con
 - 1 case / X people
 - 1 death / x people
 - 1 test / x people
-- 
+
 #### Usage:
 - **JSON**
   - Run main.py from the root directory
