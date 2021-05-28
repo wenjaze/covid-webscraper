@@ -1,3 +1,6 @@
+"""Data class for storing covid-related stuff."""
+
+
 class Country(object):
     def __init__(
             self,
