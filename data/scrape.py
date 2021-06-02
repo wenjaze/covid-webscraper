@@ -3,20 +3,17 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from model import country
 
-"""Extracting HTML table from worldometers."""
-
 
 def getTable():
+    """Extracting HTML table from worldometers."""
     URL = "https://www.worldometers.info/coronavirus/"
     page = requests.get(URL)
     soup = BeautifulSoup(page.content, 'html.parser')
     return soup.find(id='main_table_countries_today')
 
 
-"""Creating pandas dataframe headers."""
-
-
 def createDataFrame():
+    """Creating pandas dataframe headers."""
     headers = []
     for i in getTable().find_all('th'):
         title = i.text
@@ -25,10 +22,8 @@ def createDataFrame():
     return pd.DataFrame(columns=headers)
 
 
-"""Filling pandas dataframe with rows and converting it to numpy array."""
-
-
 def dataFrameToNumpyArray():
+    """Filling pandas dataframe with rows and converting it to numpy array."""
     df = createDataFrame()
     for j in getTable().find_all('tr')[1:]:
         row_data = j.find_all('td')
@@ -38,10 +33,9 @@ def dataFrameToNumpyArray():
     return df.to_numpy()
 
 
-"""Filling the list of Country objects."""
-
-
 def fillCountriesList():
+    """Filling the list of Country objects."""
+
     df = dataFrameToNumpyArray()
     countries = []
     for row in df[7:]:
